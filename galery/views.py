@@ -1,19 +1,9 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from galery.models import Picture
 
 def index(request):
-
-    data = {
-    1: {
-        "name": "Nebulosa de Carina",
-        "credits": "webbtelescope.org / NASA / James Webb"
-    },
-    2: {
-        "name": "Galáxia NGC 1079",
-        "credits": "nasa.org / NASA / Hubble"
-    }
-}
-    
-    return render(request, 'galery/index.html', {"cards": data})
-def image(request):
-    return render(request, 'galery/image.html')
+    pictures = Picture.objects.all()
+    return render(request, 'galery/index.html', {"cards": pictures})
+def image(request, clicked_picture_id):
+    clicked_picture = get_object_or_404(Picture, pk=clicked_picture_id)
+    return render(request, 'galery/image.html', {"picture": clicked_picture})
