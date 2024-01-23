@@ -431,7 +431,7 @@ table {
 }
 
 .rodape__icones {
-    width: 80px;
+    gap: 10px;
     display: flex;
     justify-content: space-between;
 }
