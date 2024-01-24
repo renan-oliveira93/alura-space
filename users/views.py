@@ -35,9 +35,7 @@ def sign_up(request):
     if request.method == 'POST':
         form = SignUpForms(request.POST)
         if form.is_valid():
-            if form["password_create"].value() != form["password_confirmation"].value():
-                messages.error(request, "As senhas fornecidas não conferem")
-                return redirect('sign_up')
+
             name=form["name"].value()
             email=form["email"].value()
             password=form["password_create"].value()

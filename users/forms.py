@@ -69,3 +69,23 @@ class SignUpForms(forms.Form):
             }
         )
     )
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+
+        if name:
+            name = name.strip()
+            if ' ' in name:
+                raise forms.ValidationError('Espaços não são permitidos nesse campo')
+            else:
+                return name
+        
+    def clean_password_confirmation(self):
+        password_create = self.cleaned_data.get('password_create')
+        password_confirmation = self.cleaned_data.get('password_confirmation')
+    
+        if password_create and password_confirmation:
+            if password_create != password_confirmation:
+                raise forms.ValidationError('As senhas não conferem')
+            else: 
+                return password_confirmation
