@@ -21,11 +21,7 @@
     <div class="pagina-inicial">
         <header class="cabecalho">
             <img src="{% static '/assets/logo/Logo(2).png' %}" alt="Logo da Alura Space" />
-            {% for message in messages %}
-            <div class="alert alert-primary">
-                <p id="messages">{{message}}</p>
-            </div>
-            {% endfor %}
+            {% include 'partials/_alerts.html' %}
             <div class="cabecalho__busca">
                 <div class="busca__fundo">
                     <form action="{% url 'search' %}">
@@ -60,6 +56,11 @@
                                 style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
                             {{ field }}
                         </div>
+                        {% for error in field.errors %}
+                        <div class="alert alert-danger">
+                            {{error}}
+                        </div>
+                        {% endfor %}
                         {% endfor %}
                     </div>
                     <div>
@@ -72,4 +73,4 @@
     </div>
 </body>
 
-{% include 'galery/partials/_footer.html' %}
+{% include 'partials/_footer.html' %}
