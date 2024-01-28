@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.models import User
-
-from users.forms import SignInForms, SignUpForms
+from apps.users.forms import SignInForms, SignUpForms
 
 def sign_in(request):
     form = SignInForms()
