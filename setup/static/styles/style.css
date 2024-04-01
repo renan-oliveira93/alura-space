@@ -426,6 +426,8 @@ table {
 }
 
 .rodape {
+    position: fixed;
+    bottom: 0;
     background-color: #04244F;
     width: 100%;
     padding: 1.5rem 3rem;
