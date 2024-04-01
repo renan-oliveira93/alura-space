@@ -6,3 +6,6 @@ migrations:
 
 migrate:
 	python manage.py migrate
+
+collect-static:
+	python manage.py collectstatic

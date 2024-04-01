@@ -198,6 +198,11 @@ table {
     width: 500px;
 }
 
+.busca__input button {
+    background-color: transparent;
+    border: none;
+}
+
 .busca__icone {
     cursor: pointer;
     width: 2rem;

@@ -6,9 +6,9 @@
     {% include 'partials/_alerts.html' %}
     <div class="cabecalho__busca">
         <div class="busca__fundo">
-            <form action="{% url 'search'%}">
+            <form action="{% url 'search'%}" style="display: flex;">
                 <input class="busca__input" type="text" placeholder="O que você procura?" name="search">
-                <button type="submit">
+                <button style="background-color: transparent; border:none;" type="submit">
                     <img class="busca__icone" src="{% static 'assets/ícones/1x/search.png' %}" alt="ícone de search">
                 </button>
             </form>

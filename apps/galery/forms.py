@@ -6,7 +6,7 @@ class PictureForms(forms.ModelForm):
         model = Picture
         exclude = ['published',]
         labels = {
-            'name': 'Nome',
+            'name': 'Título da Imagem',
             'credits': 'Créditos da imagem',
             'category': 'Categoria',
             'description': 'Descrição',
