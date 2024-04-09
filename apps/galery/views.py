@@ -9,6 +9,10 @@ def index(request):
         return redirect('sign_in')
     pictures = Picture.objects.order_by("-picture_date").filter(published=True)
     return render(request, 'galery/index.html', {"cards": pictures})
+
+def news(request):
+    return render(request, 'news/index.html')
+
 def image(request, clicked_picture_id):
     clicked_picture = get_object_or_404(Picture, pk=clicked_picture_id)
     return render(request, 'galery/image.html', {"picture": clicked_picture})
